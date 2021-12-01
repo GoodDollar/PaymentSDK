@@ -1,0 +1,10 @@
+.vscode
+android
+assets
+/node_modules
+/config
+flow-typed
+scripts
+src/lib/facetec
+/*.js
+/node_modules/**
