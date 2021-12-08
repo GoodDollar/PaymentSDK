@@ -1,4 +1,4 @@
-export class TxData{
+export interface TxData{
     txHash: string
 
     recipient: string
@@ -11,14 +11,6 @@ export class TxData{
 
     data?: string
 
-    constructor(txHash: string,recipient: string, amount: number, invoiceId: string, category: string, data: string) {
-    this.txHash = txHash
-    this.recipient = recipient
-    this.amount = amount
-    this.invoiceId = invoiceId
-    this.category = category
-    this.data = data     
-    }
 }
 export function validateTx(TxData:TxData):boolean{
     return true;
