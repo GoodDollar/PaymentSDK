@@ -21,6 +21,5 @@ export class TxData{
     }
 }
 export function validateTx(TxData:TxData):boolean{
-    console.log(TxData);
     return true;
 }

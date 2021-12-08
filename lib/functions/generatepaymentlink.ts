@@ -65,26 +65,20 @@ export class PaymentDetails{
 
 
 export function generatePaymentLink(PaymentDetails:PaymentDetails) : string {
-    console.log("here")
-    console.log(PaymentDetails)
-      const codeObj = {
-          m: PaymentDetails.recipient,
-          a: PaymentDetails.amount,
-          r: PaymentDetails.reason || '',
-          cat: PaymentDetails.category,
-          ven: {},
-      }
-      if (PaymentDetails.vendorData!==undefined && PaymentDetails.vendorData!== null) {
-          const val = new VendorMetadata(PaymentDetails.vendorData.callbackUrl,PaymentDetails.vendorData.invoiceId,PaymentDetails.vendorData.website,PaymentDetails.vendorData.vendorName);
-          codeObj.ven = val.toConcise();
-          console.log(codeObj.ven)
-      }
-  
-      let input = JSON.stringify(codeObj);
-      console.log(codeObj);
-      let buff = Buffer.from(input);
-      let base64input = buff.toString('base64');
-      console.log(PaymentDetails.vendorData);
-      console.log('"' + input + '" converted to Base64 is "' + base64input + '"');
-      return `http://wallet.gooddollar.org:3000/?code=${base64input}`;
+    const codeObj = {
+        m: PaymentDetails.recipient,
+        a: PaymentDetails.amount,
+        r: PaymentDetails.reason || '',
+        cat: PaymentDetails.category,
+        ven: {},
+    }
+    if (PaymentDetails.vendorData!==undefined && PaymentDetails.vendorData!== null) {
+        const val = new VendorMetadata(PaymentDetails.vendorData.callbackUrl,PaymentDetails.vendorData.invoiceId,PaymentDetails.vendorData.website,PaymentDetails.vendorData.vendorName);
+        codeObj.ven = val.toConcise();
+    }
+
+    let input = JSON.stringify(codeObj);
+    let buff = Buffer.from(input);
+    let base64input = buff.toString('base64');
+    return `http://wallet.gooddollar.org:3000/?code=${base64input}`;
   }
