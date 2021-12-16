@@ -16,8 +16,8 @@ describe('generatePaymentQR function test', () => {
     });
 });
 describe('validateTx function test', () => {
-    it('should return a bollean which is either true or false', () => {
-        var result = index.validateTx({txHash:'3dPB4qR3AeJ2cKsjRgajwtMaRk7N24hULg6',recipient:'3dPB4qR3AeJ2cKsjRgajwtMaRk7N24hULg6',amount:'22200',invoiceId:'afds',category:'Digital Services',data:'bleh'});
+    it('should return an object', async function() {
+        var result = await index.validateTx({txHash:'0xc18c3f2f0f3d0916f23bb083224930202d6271929e729fcbf0004f4d85b59650',recipient:'0x66582D24FEaD72555adaC681Cc621caCbB208324',amount:'22200',invoiceId:'afds',category:'Digital Services',data:'bleh'});
         console.log(result);
     });
 });
