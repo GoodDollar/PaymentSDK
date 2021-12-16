@@ -1,4 +1,4 @@
-import { PaymentDetails } from "../types";
+import { PaymentDetails } from "../../types";
 import { generatePaymentLink } from "./generatePaymentLink";
 import * as QRCode from 'qrcode'
 

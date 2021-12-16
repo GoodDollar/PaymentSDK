@@ -1,5 +1,5 @@
 import { getTx } from '../ether';
-import { TxData } from '../types';
+import { TxData } from '../../types';
 
 
 export function validateTx(TxData:TxData):Promise<string>{

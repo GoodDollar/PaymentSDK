@@ -1,4 +1,4 @@
-import { PaymentDetails } from "../types";
+import { PaymentDetails } from "../../types";
 
 
 export function generatePaymentLink({recipient, amount, reason, category, vendorData}:PaymentDetails) : string {
