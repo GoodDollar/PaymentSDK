@@ -1,5 +1,5 @@
 import { PaymentDetails } from "../../types";
-
+import env from "../../Config"
 
 export function generatePaymentLink({recipient, amount, reason, category, vendorData}:PaymentDetails) : string {
     const codeObj = {
@@ -19,5 +19,5 @@ export function generatePaymentLink({recipient, amount, reason, category, vendor
     const buff = Buffer.from(input);
     const base64input = buff.toString('base64');
 
-    return `${base64input}`;
+    return `${env.linkUrl}${base64input}`;
 }
