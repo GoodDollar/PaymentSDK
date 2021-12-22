@@ -15,6 +15,7 @@ export interface VendorMetadata {
 }
 
 export interface PaymentDetails{
+    address: string
     recipient: string
     amount: number
     reason: string

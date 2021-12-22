@@ -1,7 +1,9 @@
 import { PaymentDetails } from "../../types";
 import env from "../../Config"
+// import * as mnid from '@types/mnid'
 
-export function generatePaymentLink({recipient, amount, reason, category, vendorData}:PaymentDetails) : string {
+
+export function generatePaymentLink({address, recipient, amount, reason, category, vendorData}:PaymentDetails) : string {
     const codeObj = {
         m: recipient,
         a: amount,
@@ -14,7 +16,8 @@ export function generatePaymentLink({recipient, amount, reason, category, vendor
             ven : vendorData.vendorName
         } : {},
     }
-
+    // const id = mnid.encode({ address, network: env.network })
+    // console.log(id)
     const input = JSON.stringify(codeObj);
     const buff = Buffer.from(input);
     const base64input = buff.toString('base64');
