@@ -1,0 +1,32 @@
+{
+  "name": "paymentsdk",
+  "version": "1.0.0",
+  "description": "SDK for payment backends (marketplaces etc)",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "mocha --timeout 10000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HimandriSharma/PaymentSDK.git"
+  },
+  "author": "“Himandri <himandrisharma27@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HimandriSharma/PaymentSDK/issues"
+  },
+  "homepage": "https://github.com/HimandriSharma/PaymentSDK#readme",
+  "devDependencies": {
+    "@types/node": "^16.11.11",
+    "@types/qrcode": "^1.4.1",
+    "chai": "^4.3.4",
+    "mnid": "^0.1.3",
+    "mocha": "^9.1.3",
+    "qrcode": "^1.5.0",
+    "typescript": "^4.5.2"
+  },
+  "dependencies": {
+    "ethers": "^5.5.2"
+  }
+}
