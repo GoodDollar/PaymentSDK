@@ -7,7 +7,7 @@ const erc20Abi = [
 const provider = new ethers.providers.JsonRpcProvider("https://rpc.fuse.io");
 
 const gooddollar = new ethers.Contract(
-  "0x495d133B938596C9984d462F007B676bDc57eCEC",
+  "0x79BeecC4b165Ccf547662cB4f7C0e83b3796E5b3",
   erc20Abi,
   provider
 );
@@ -25,7 +25,7 @@ export const getEvents = async (recipient:any, fromBlock = 6400000) => {
 };
 
 export const getTx = async (hash:any) => {
-  const receipt = await provider.getTransactionReceipt(hash);
+  const receipt = await provider.getTransactionReceipt(hash);  
   const logs = receipt.logs.map((l:any) => {
     try {
       return gooddollar.interface.parseLog(l);
