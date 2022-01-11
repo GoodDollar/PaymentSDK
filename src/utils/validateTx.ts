@@ -12,12 +12,14 @@ export function validateTx(txData:TxData):Promise<string>{
                     if(v && v.args.data) {   
                         let comparingEntity = Web3.utils.hexToUtf8(v.args.data)
                         comparingEntity = JSON.parse(comparingEntity)
-                        if(comparingEntity.invoiceId===txData.invoiceId || v.args.data===txData.data){
+                        let amount = parseInt(v.args.amount._hex,16)
+                        if((comparingEntity.invoiceId===txData.invoiceId || v.args.data===txData.data) &&
+                                v.args.to===txData.recipient && amount===txData.amount){
                             return true;
-                        }        
+                        }
                     }
                  })
-                 value.map((v:any)=>{if(v)result=true;});
+                 value.map((v:any)=>{if(v==true)result=true;});
                  return result;
              })
              .catch((err:any)=>{
