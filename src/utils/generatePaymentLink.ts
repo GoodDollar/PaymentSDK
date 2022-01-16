@@ -2,7 +2,7 @@ import { PaymentDetails } from "../../types";
 import env from "../../Config"
 import * as mnid from 'mnid';
 
-export function generatePaymentLink({address, recipient, amount, reason, category, vendorData}:PaymentDetails) : string {
+export function generatePaymentLink({address, amount, reason, category, vendorData}:PaymentDetails) : string {
     const codeObj = {
         m: '',
         a: amount,
