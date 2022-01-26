@@ -1,5 +1,5 @@
 import { PaymentDetails } from "../../types";
-import env from "../../Config"
+import config from "../../Config"
 import * as mnid from 'mnid';
 
 export function generatePaymentLink({address, amount, reason, category, vendorData}:PaymentDetails) : string {
@@ -16,11 +16,11 @@ export function generatePaymentLink({address, amount, reason, category, vendorDa
         } : {},
     }
     codeObj.m = mnid.encode({
-        network: env.network,
+        network: `0x${config.network.toString(16)}`,
         address
     })
     const input = JSON.stringify(codeObj);
     const buff = Buffer.from(input);
     const base64input = buff.toString('base64');
-    return `${env.linkUrl}${base64input}`;
+    return `${config.linkUrl}${base64input}`;
 }

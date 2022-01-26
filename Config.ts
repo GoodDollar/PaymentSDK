@@ -1,4 +1,5 @@
+import * as ContractsAddress from '@gooddollar/goodprotocol/releases/deployment.json'
 export default {
-  network: '66757365',
+  network: ContractsAddress['fuse'].networkId,
   linkUrl:"http://wallet.gooddollar.org:3000/?code="
 }
