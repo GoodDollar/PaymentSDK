@@ -1,4 +1,4 @@
-import { getTx } from '../web3/ether';
+import { getTx } from '../web3';
 import { TxData } from '../../types';
 import { ethers } from 'ethers';
 
