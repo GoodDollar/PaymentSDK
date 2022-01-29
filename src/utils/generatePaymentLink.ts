@@ -16,7 +16,7 @@ export function generatePaymentLink({address, amount, reason, category, vendorDa
         } : {},
     }
     codeObj.m = mnid.encode({
-        network: `0x${config.network.toString(16)}`,
+        network: `0x${config.networkId.toString(16)}`,
         address
     })
     const input = JSON.stringify(codeObj);
