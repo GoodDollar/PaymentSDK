@@ -3,8 +3,8 @@ import { TxData } from '../../types';
 import { ethers } from 'ethers';
 
 
-export async function validateTx({txHash,recipient,amount,invoiceId,}:TxData):Promise<boolean> {
-    let res = await getTx(txHash);
+export async function validateTx({txHash,recipient,amount,invoiceId,network}:TxData):Promise<boolean> {
+    let res = await getTx(txHash,network);
     let result = false;
     let value = res.map((v:any)=>{
         if(v && v.args.data) {   

@@ -3,6 +3,7 @@ export interface TxData{
     recipient: string
     amount: number
     invoiceId: string
+    network?: string
 }
 
 export interface VendorMetadata {
