@@ -11,13 +11,15 @@ A Seller like e-commerce for "brand" would like to be able to request payment fr
 ### Details
 #### Seller API
 A typescript NPM module that works both on browser/node that implements the following methods
+
+##### Method 1
 ```
 generatePaymentLink(PaymentDetails:string)
 ```
 
 Creates a payment link.
 #### Example:
-http://wallet.gooddollar.org:3000/? code=eyJtIjoiM2RQQjRxUjNBZUoyY0tzalJnYWp3dE1hUms3TjI0aFVMZzYiLCJhIjoiM...
+[http://wallet.gooddollar.org:3000/? code=eyJtIjoiM2RQQjRxUjNBZUoyY0tzalJnYWp3dE1hUms3TjI0aFVMZzYiLCJhIjoiM...]()
 the query param code is the base64 encrypted value returned from generateCode.
 
 The generated code should return an object with the paymenDetails params and the ones that we already have
@@ -31,7 +33,7 @@ Example:
   "cat":"Digital Services"
 }
 ```
-  
+##### Method 2
 ```
 generatePaymentQR(PaymentDetails):image
 ```
@@ -39,7 +41,7 @@ generatePaymentQR(PaymentDetails):image
 Same as above but create a QR containing the payment link from the generatePaymentLink method described above.
 Returns Data URL link (in string format).
 
-
+##### Method 3
 ```
 validateTx(TxData):boolean
 ```
