@@ -18,7 +18,7 @@ generatePaymentLink(PaymentDetails:string)
 ```
 
 Creates a payment link.
-#### Example:
+Example:
 [http://wallet.gooddollar.org:3000/? code=eyJtIjoiM2RQQjRxUjNBZUoyY0tzalJnYWp3dE1hUms3TjI0aFVMZzYiLCJhIjoiM...]()
 the query param code is the base64 encrypted value returned from generateCode.
 
@@ -51,7 +51,7 @@ Reads fuse blockchain for txhash and check it has a Transfer log with the amount
 Listens to Transfer event with to=recipient and data=sha3(invoiceid/data)
 resolves promise once event detected.
 
-Types
+##### Types
 ```
 PaymentDetails {
   address: string,
