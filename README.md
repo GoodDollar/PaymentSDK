@@ -22,7 +22,7 @@ Creates a payment link.
 [http://wallet.gooddollar.org:3000/? code=eyJtIjoiM2RQQjRxUjNBZUoyY0tzalJnYWp3dE1hUms3TjI0aFVMZzYiLCJhIjoiM...]()
 the query param code is the base64 encrypted value returned from generateCode.
 
-The generated code should return an object with the paymenDetails params and the ones that we already have
+The generated code will return an object with the paymenDetails params and the ones that we already have
 
 Example:
 ```
@@ -35,7 +35,7 @@ Example:
 ```
 ##### Method 2
 ```
-generatePaymentQR(PaymentDetails):image
+generatePaymentQR(PaymentDetails):DataURL
 ```
 
 Same as above but create a QR containing the payment link from the generatePaymentLink method described above.
@@ -46,30 +46,37 @@ Returns Data URL link (in string format).
 validateTx(TxData):boolean
 ```
 
-Reads fuse blockchain for txhash and check it has a Transfer log with the amount + sha3(invoiceid/data) paid to recipient in event log data                           
+Reads fuse blockchain for txhash and check it has a Transfer log with the amount + sha3(invoiceid/data) paid to recipient in event log data.                          
 
 Listens to Transfer event with to=recipient and data=sha3(invoiceid/data)
-resolves promise once event detected
+resolves promise once event detected.
+
 Types
 ```
-PaymentDetails: {
-  recipient,
-  amount,
-  reason,
-  category,
-  invoiceId,
-  data?,
-  sellerName?,
-  sellerWebsite?,
-  callbackurl
+PaymentDetails {
+  address: string,
+  recipient: string,
+  amount: number,
+  reason: string,
+  category: string,
+  vendorData?: VendorMetadata
 }
 ```
 ```
-TxData: {
-  txHash,
-  recipient,
-  amount
-  invoiceId,
-  data?
+VendorMetadata {
+  callbackUrl: URL,
+  invoiceId: string,
+  website: URL, 
+  vendorName: string
+}
+```
+
+```
+TxData {
+  txHash: string,
+  recipient: string,
+  amount: number,
+  invoiceId: string,
+  network?: string
 }
 ```
