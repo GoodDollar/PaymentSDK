@@ -1,19 +1,10 @@
-import { getTx } from '../web3/ether';
+import { getTx } from '../web3Data';
 import { TxData } from '../../types';
+import { ethers } from 'ethers';
 
 
-export function validateTx(txData:TxData):Promise<string>{
-    let res = getTx(txData.txHash)
-             .then((val:any)=>{
-                let value = val.map((v:any)=>{
-                    if(v) {
-                        return v;
-                    }
-                 })
-                 return value;
-             })
-             .catch((err:any)=>{
-                 return err;
-             });
-    return res;
+export async function validateTx({txHash,recipient,amount,invoiceId,network}:TxData):Promise<boolean> {
+    let res = await getTx(txHash,network);
+    let value = res.find((element)=> element?.args.to===recipient && element?.args.data && element?.args.amount.toNumber()===amount && ethers.utils.toUtf8String(element?.args.data)===invoiceId);   
+    return value?true:false;
 }

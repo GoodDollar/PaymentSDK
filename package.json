@@ -4,6 +4,7 @@
   "description": "SDK for payment backends (marketplaces etc)",
   "main": "index.js",
   "scripts": {
+    "type": "module",
     "build": "tsc",
     "test": "mocha --timeout 10000"
   },
@@ -19,7 +20,7 @@
   "homepage": "https://github.com/HimandriSharma/PaymentSDK#readme",
   "devDependencies": {
     "@types/node": "^16.11.11",
-    "@types/qrcode": "^1.4.1",
+    "@types/qrcode": "^1.4.2",
     "chai": "^4.3.4",
     "mnid": "^0.1.3",
     "mocha": "^9.1.3",
@@ -27,6 +28,8 @@
     "typescript": "^4.5.2"
   },
   "dependencies": {
-    "ethers": "^5.5.2"
+    "@gooddollar/goodprotocol": "^1.0.8",
+    "ethers": "^5.5.2",
+    "web3": "^1.6.1"
   }
 }
