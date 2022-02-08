@@ -98,7 +98,7 @@ var result = await validateTx({
 });
 ```
 
-Example Output :
+###### Example Output :
 ```
 true
 ```
