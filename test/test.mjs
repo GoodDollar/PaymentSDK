@@ -18,7 +18,7 @@ describe('generatePaymentQR function test', () => {
 });
 describe('validateTx function test', () => {
     it('should return a boolean answer', async function() {
-        var result = await validateTx({txHash:"0x16d3c01a2786ce2022ef036ed122c5ff38b1809bf14302c3b89de73cbcbcac8d",recipient:"0x2FaDA5F33728761648dAB4BE25BF0fE831B9dD34",amount:500,invoiceId:"receipt-id-3938383",category:'Digital Services',data:'bleh'});
+        var result = await validateTx({txHash:"0x16d3c01a2786ce2022ef036ed122c5ff38b1809bf14302c3b89de73cbcbcac8d",recipient:"0x2FaDA5F33728761648dAB4BE25BF0fE831B9dD34",amount:500,invoiceId:"receipt-id-3938383"});
         console.log(result);
         expect(result).to.be.a('boolean')
     });
