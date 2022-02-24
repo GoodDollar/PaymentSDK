@@ -17,7 +17,7 @@
   "bugs": {
     "url": "https://github.com/GoodDollar/PaymentSDK/issues"
   },
-  "homepage": "https://github.com/HimandriSharma/PaymentSDK#readme",
+  "homepage": "https://github.com/GoodDollar/PaymentSDK",
   "devDependencies": {
     "@types/node": "^16.11.11",
     "@types/qrcode": "^1.4.2",
